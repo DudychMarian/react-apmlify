@@ -6,9 +6,10 @@ import awsconfig from './aws-exports';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import ForgotPassword from './components/ForgotPassword';
-import { StepOne } from './page/StepOne';
-import { StepTwo } from './page/StepTwo';
+import { StepOne } from './page/Attributes/StepOne';
+import { StepTwo } from './page/Attributes/StepTwo';
 import { Home } from './page/Home';
+import { Unfortunately } from './page/Unfortunately';
 
 Amplify.configure(awsconfig);
 
@@ -92,6 +93,9 @@ function App() {
       </Route>
       <Route exact path="/stepTwo">
         <StepTwo />
+      </Route>
+      <Route exact path="/unfortunately">
+        <Unfortunately />
       </Route>
     </div>
   );

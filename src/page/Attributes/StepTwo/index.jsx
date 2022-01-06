@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Auth from '@aws-amplify/auth';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
-import logo from '../../assets/img/logo.jpeg';
-
+import logo from '../../../assets/img/logo.jpeg';
 import styles from './StepOne.module.scss';
 
 export const StepTwo = () => {
-  const [lastName, setLastName] = useState([]);
+  const [lastName, setLastName] = useState('');
+  const [dob, setDob] = useState('');
   const [policyId, setPolicyId] = useState('');
   const [postCode, setPostCode] = useState('');
 
@@ -16,10 +17,38 @@ export const StepTwo = () => {
   useEffect(() => {
     const fetch = async () => {
       let attributes = await Auth.currentAuthenticatedUser();
-      setLastName(attributes.attributes.family_name);
+      setDob(attributes.attributes['custom:dob']);
+      setLastName(attributes.attributes['family_name']);
     };
     fetch();
   }, []);
+
+  const registrationCheck = async () => {
+    let data = {
+      dateOfBirth: dob,
+      email: 'dudychmarian@gmail.com',
+      lastName: lastName,
+      policyNumber: policyId,
+      postCode: postCode,
+    };
+
+    let config = {
+      method: 'post',
+      url: 'https://externaltest-api.simplyhealth.co.uk/health-plan/members/registrationcheck',
+      headers: {},
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        history.push('/');
+      })
+      .catch(function (error) {
+        console.log(error);
+        history.push('/unfortunately');
+      });
+  };
 
   const next = async (e) => {
     e.preventDefault();
@@ -33,7 +62,7 @@ export const StepTwo = () => {
     //====
     console.log(result);
     //====
-    history.push('/');
+    registrationCheck();
   };
 
   return (
@@ -46,6 +75,7 @@ export const StepTwo = () => {
             <form onSubmit={next}>
               <div className={styles.inputWrapper}>
                 <input type="text" value={lastName} disabled />
+                <input type="text" value={dob} disabled />
                 <input
                   id="policyId"
                   placeholder="Policy Id"
@@ -63,7 +93,7 @@ export const StepTwo = () => {
                   required
                 />
               </div>
-              <button>Next</button>
+              <button>Submit</button>
             </form>
           </div>
         </div>

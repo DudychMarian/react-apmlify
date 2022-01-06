@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Auth from '@aws-amplify/auth';
 import { useHistory } from 'react-router-dom';
 
-import logo from '../../assets/img/logo.jpeg';
+import logo from '../../../assets/img/logo.jpeg';
 
 import styles from './StepOne.module.scss';
 
