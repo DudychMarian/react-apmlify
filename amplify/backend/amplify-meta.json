@@ -1,0 +1,58 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifyreact-dev-115529-authRole",
+      "UnauthRoleArn": "arn:aws:iam::893792525600:role/amplify-amplifyreact-dev-115529-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::893792525600:role/amplify-amplifyreact-dev-115529-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-amplifyreact-dev-115529-deployment",
+      "UnauthRoleName": "amplify-amplifyreact-dev-115529-unauthRole",
+      "StackName": "amplify-amplifyreact-dev-115529",
+      "StackId": "arn:aws:cloudformation:eu-west-1:893792525600:stack/amplify-amplifyreact-dev-115529/767e0310-688d-11ec-9d1e-0ad5a308da6f",
+      "AmplifyAppId": "d3dzv9o7gnobme"
+    }
+  },
+  "auth": {
+    "amplifyreactc85c4095": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyreact-dev-115529-deployment/amplify-cfn-templates/auth/amplifyreactc85c4095-cloudformation-template.json",
+        "logicalId": "authamplifyreactc85c4095"
+      },
+      "lastPushTimeStamp": "2021-12-29T10:01:42.929Z",
+      "output": {
+        "UserPoolId": "eu-west-1_JHlqox73y",
+        "AppClientIDWeb": "44h1g6udsm1d9sn67s2bb3cq",
+        "AppClientID": "k9hf8o4kgu04uvv8mq4lffsas",
+        "IdentityPoolId": "eu-west-1:0ff697eb-1d21-44b3-8366-9deb09a5d9de",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-west-1:893792525600:userpool/eu-west-1_JHlqox73y",
+        "IdentityPoolName": "amplifyreactc85c4095_identitypool_c85c4095__dev",
+        "UserPoolName": "amplifyreactc85c4095_userpool_c85c4095"
+      },
+      "lastPushDirHash": "yMRG1GLCcpWBD3IlT5/JjCw1hDM="
+    }
+  }
+}
