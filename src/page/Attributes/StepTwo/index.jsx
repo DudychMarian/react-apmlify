@@ -11,22 +11,28 @@ export const StepTwo = () => {
   const [dob, setDob] = useState('');
   const [policyId, setPolicyId] = useState('');
   const [postCode, setPostCode] = useState('');
+  const [email, setEmail] = useState('');
 
   const history = useHistory();
 
   useEffect(() => {
-    const fetch = async () => {
-      let attributes = await Auth.currentAuthenticatedUser();
-      setDob(attributes.attributes['custom:dob']);
-      setLastName(attributes.attributes['family_name']);
-    };
-    fetch();
+    try {
+      const fetch = async () => {
+        let attributes = await Auth.currentAuthenticatedUser();
+        setDob(attributes.attributes['custom:dob']);
+        setLastName(attributes.attributes['family_name']);
+        setEmail(attributes.attributes['email']);
+      };
+      fetch();
+    } catch (err) {
+      console.log('Error: ', err);
+    }
   }, []);
 
   const registrationCheck = async () => {
     let data = {
       dateOfBirth: dob,
-      email: 'dudychmarian@gmail.com',
+      email: email,
       lastName: lastName,
       policyNumber: policyId,
       postCode: postCode,

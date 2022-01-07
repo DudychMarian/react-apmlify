@@ -46,7 +46,7 @@ export const StepOne = () => {
                 />
                 <input
                   id="DOB"
-                  placeholder="DOB"
+                  placeholder="Date of Birth"
                   value={dob}
                   type="date"
                   onChange={(e) => setDob(e.target.value)}

@@ -59,6 +59,10 @@ const Signin = ({ onSignin }) => {
           <Link to="/forgotPassword">
             <span className={styles.fLink}>Forgot password?</span>
           </Link>
+          <br />
+          <Link to="/resendLink" className={styles.fLink}>
+            Send confirmation email again
+          </Link>
         </div>
       </div>
     </div>

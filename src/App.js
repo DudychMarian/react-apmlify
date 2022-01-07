@@ -10,6 +10,8 @@ import { StepOne } from './page/Attributes/StepOne';
 import { StepTwo } from './page/Attributes/StepTwo';
 import { Home } from './page/Home';
 import { Unfortunately } from './page/Unfortunately';
+import { Settings } from './page/Settings';
+import { ResendLink } from './components/ResendLink';
 
 Amplify.configure(awsconfig);
 
@@ -77,7 +79,7 @@ function App() {
         )}
       </header>
       <Route exact path="/">
-        {loggedIn ? <Home /> : <p>Please sign in</p>}
+        {loggedIn ? <Home /> : <h2 style={{ textAlign: 'center' }}>Please sign in</h2>}
       </Route>
       <Route exact path="/signin">
         <SignIn onSignin={assessLoggedInState} />
@@ -94,8 +96,14 @@ function App() {
       <Route exact path="/stepTwo">
         <StepTwo />
       </Route>
+      <Route exact path="/settings">
+        <Settings />
+      </Route>
       <Route exact path="/unfortunately">
         <Unfortunately />
+      </Route>
+      <Route exact path="/resendLink">
+        <ResendLink />
       </Route>
     </div>
   );
